@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube動画埋め込み</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .youtube-embed {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        iframe {
+        margin-top: 20px;
+        max-width: 100%;
+        border: 2px dashed red
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>埋め込みYouTube動画のパラメータ比較</h2>
+        <p>赤い点線はiframe埋め込み枠</p>
+        <ul style="text-align: left;">
+            <li>利用した動画：<a href="https://www.youtube.com/watch?v=M7lc1UVf-VE" target="_blank">YouTube Developers Live: Embedded Web Player Customization</a></li>
+            <li>埋め込みプレイヤーのパラメータの仕様：<a href="https://developers.google.com/youtube/player_parameters" target="_blank">YouTube Embedded Players and Player Parameters</a></li>
+            <li>iframeタグの仕様：<a href="https://developer.mozilla.org/ja/docs/Web/HTML/Reference/Elements/iframe" target="_blank">YouTube Embedded Players and Player Parameters</a></li>
+        </ul>
+        <div class="youtube-embed">
+            <p>デフォルト</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/M7lc1UVf-VE" title="Sample YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="youtube-embed">
+            <p>自動再生（ミュートとセットじゃないと動作しない）</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&mute=1" title="Sample YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="youtube-embed">
+            <p>+ループ再生(iframe埋め込みの場合はプレイリストも動画IDと同じ指定にしないと動作しない)
+            </p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&mute=1&playlist=M7lc1UVf-VE&loop=1" title="Sample YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="youtube-embed">
+            <p>+プレイヤーコントロールを非表示にする</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&mute=1&&playlist=M7lc1UVf-VE&loop=1&controls=0" title="Sample YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="youtube-embed">
+            <p>+一時停止や動画終了時に表示される関連動画を同チャンネル内に絞る</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&mute=1&&playlist=M7lc1UVf-VE&loop=1&controls=0&rel=0" title="Sample YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+</body>
+</html>
+
